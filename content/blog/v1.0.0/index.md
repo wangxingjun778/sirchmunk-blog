@@ -1,41 +1,78 @@
 ---
-title: v1.0.0 Released!
-summary: Hugo v1.0.0 released. Download now and follow the guide to get started in 5 minutes!
-date: 2023-01-01
+title: "Introducing Sirchmunk v0.0.1 — Initial Release"
+summary: "The first release of Sirchmunk, an embedding-free agentic search engine. Features indexless retrieval, self-evolving knowledge clusters, Monte Carlo evidence sampling, and a real-time Web UI."
+date: 2026-01-22
 authors:
   - me
 tags:
-  - Hugo
-  - Hugo Blox
-  - Markdown
+  - Release
+  - Sirchmunk
+  - Agentic Search
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
+  caption: 'Sirchmunk v0.0.1'
 ---
 
-Hugo v1.0.0 is now available! This release includes new experimental features to try out, improvements to accessibility, the ability for plugins to customize image optimization in Markdown, and many more improvements and bug fixes.
+We are excited to announce the initial release of **Sirchmunk** — an open-source, embedding-free, agentic search engine that transforms raw data into self-evolving intelligence in real time.
 
-Highlights include:
+<!--more-->
 
-- New config options
-- Improved accessibility
-- Customizable image optimization in Markdown
+## What is Sirchmunk?
 
-Thank you to everyone who contributed to this release!
+Sirchmunk takes a fundamentally different approach to retrieval-augmented generation. Instead of relying on static vector embeddings and pre-computed indexes, it operates directly on raw files — delivering instant, full-fidelity retrieval without any pre-processing.
 
-## New Features
+## Key Features in v0.0.1
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+### Indexless Retrieval
+Drop your files and search immediately. No vector database, no ETL pipeline, no pre-indexing required. Sirchmunk leverages ripgrep-all to search across 100+ file formats in a streaming fashion.
 
-## Bug Fixes
+### Self-Evolving Knowledge Clusters
+Knowledge compounds with every search. The system builds structured Knowledge Clusters that evolve from Emerging to Stable as they are validated across multiple queries.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+### Monte Carlo Evidence Sampling
+Instead of reading entire documents, Sirchmunk uses an exploration-exploitation approach to strategically sample and score document regions — extracting precise evidence while minimizing LLM token costs.
 
-## How to Upgrade
+### ReAct Agent Fallback
+When standard retrieval falls short, an autonomous ReAct agent takes over with iterative reasoning-and-action cycles, exploring alternative strategies until answers are found.
 
-Simply run the following command in your terminal:
+### Web UI
+A modern web interface with real-time streaming chat, source citations, knowledge cluster browsing, and system monitoring dashboards. Supports dark/light themes and bilingual localization.
 
-```bash
-hugo mod get -u github.com/HugoBlox/kit/modules/blox@main
+### Python SDK
+
+```python
+import asyncio
+from sirchmunk import AgenticSearch
+from sirchmunk.llm import OpenAIChat
+
+llm = OpenAIChat(
+    api_key="your-api-key",
+    base_url="your-base-url",
+    model="your-model-name"
+)
+
+async def main():
+    searcher = AgenticSearch(llm=llm)
+    result = await searcher.search(
+        query="How does transformer attention work?",
+        paths=["/path/to/documents"],
+    )
+    print(result)
+
+asyncio.run(main())
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+## Getting Started
+
+```bash
+pip install sirchmunk
+```
+
+For the full documentation, see the [Getting Started guide](/docs/getting-started/).
+
+## What's Next?
+
+We are actively working on MCP integration, CLI improvements, and knowledge persistence. Stay tuned for v0.0.2!
+
+---
+
+*[GitHub Repository](https://github.com/modelscope/sirchmunk) · [ModelScope](https://github.com/modelscope)*

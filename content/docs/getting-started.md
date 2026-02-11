@@ -1,36 +1,91 @@
 ---
-title: Getting Started
-date: 2024-02-17
+title: Quick Start
+date: 2026-02-10
 weight: 1
 ---
 
-## Quick Start from Template
+Get Sirchmunk up and running in minutes.
+
+## Prerequisites
+
+- **Python** 3.10+
+- **LLM API Key** (OpenAI-compatible endpoint, local or remote)
+- **Node.js** 18+ (optional, for Web UI)
+
+## Installation
 
 {{% steps %}}
 
-### Initialize a new site
+### Install Sirchmunk
 
-[Click to copy the template on GitHub](https://github.com/new?template_name=theme-documentation&template_owner=HugoBlox)
+```bash
+# Create virtual environment (recommended)
+conda create -n sirchmunk python=3.13 -y && conda activate sirchmunk
 
-### Configure your new site
+# Install from PyPI
+pip install sirchmunk
 
-[Configure your site name, description, and menu.](https://docs.hugoblox.com/tutorial/blog/)
+# Or via UV
+uv pip install sirchmunk
 
-### Add your content
+# Or install from source
+git clone https://github.com/modelscope/sirchmunk.git && cd sirchmunk
+pip install -e .
+```
 
-[Edit the homepage and add your documentation pages.](https://docs.hugoblox.com/tutorial/blog/)
+### Initialize
 
-### Publish your site
+```bash
+# Initialize with default settings (work path: ~/.sirchmunk/)
+sirchmunk init
 
-[Easily publish your site for free with GitHub Pages](https://docs.hugoblox.com/tutorial/blog/)
+# Or with a custom work path
+sirchmunk init --work-path /path/to/workspace
+```
+
+### Configure your LLM
+
+Edit `~/.sirchmunk/.env` with your LLM API key and endpoint:
+
+```bash
+LLM_API_KEY=your-api-key
+LLM_BASE_URL=https://api.openai.com/v1
+LLM_MODEL=gpt-4o
+```
+
+### Run your first search
+
+```bash
+# Search in a directory
+sirchmunk search "How does authentication work?" ./src
+
+# Or use the Python SDK
+python -c "
+import asyncio
+from sirchmunk import AgenticSearch
+from sirchmunk.llm import OpenAIChat
+
+llm = OpenAIChat(api_key='your-key', base_url='your-url', model='your-model')
+
+async def main():
+    searcher = AgenticSearch(llm=llm)
+    result = await searcher.search(
+        query='How does authentication work?',
+        paths=['./src'],
+    )
+    print(result)
+
+asyncio.run(main())
+"
+```
 
 {{% /steps %}}
 
-## Next
-
-Let's customize your new site:
+## Next Steps
 
 {{< cards >}}
-  {{< card url="../guide/project-structure" title="Project Structure" icon="document-duplicate" >}}
-  {{< card url="../guide/configuration" title="Configuration" icon="adjustments-vertical" >}}
+  {{< card url="../guide/architecture" title="Architecture" icon="cpu-chip" subtitle="Understand the multi-phase search pipeline" >}}
+  {{< card url="../guide/configuration" title="Configuration" icon="adjustments-vertical" subtitle="Customize Sirchmunk's behavior" >}}
+  {{< card url="../guide/web-ui" title="Web UI" icon="computer-desktop" subtitle="Set up the web interface" >}}
+  {{< card url="../guide/mcp" title="MCP Integration" icon="link" subtitle="Connect with Claude Desktop and Cursor IDE" >}}
 {{< /cards >}}

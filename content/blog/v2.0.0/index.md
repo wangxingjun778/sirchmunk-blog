@@ -1,41 +1,89 @@
 ---
-title: v2.0.0 Released!
-summary: Hugo v2.0.0 released. Download now and follow the guide to get started in 5 minutes!
-date: 2024-01-19
+title: "Sirchmunk v0.0.2 Released — MCP Support, CLI & Knowledge Persistence"
+summary: "Sirchmunk v0.0.2 brings MCP protocol integration for Claude Desktop and Cursor IDE, a powerful CLI, DuckDB-powered knowledge persistence, and semantic cluster reuse."
+date: 2026-02-05
 authors:
   - me
 tags:
-  - Hugo
-  - Hugo Blox
-  - Markdown
+  - Release
+  - Sirchmunk
+  - MCP
+  - CLI
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
+  caption: 'Sirchmunk v0.0.2'
 ---
 
-Hugo v2.0.0 is now available! This release includes new experimental features to try out, improvements to accessibility, the ability for plugins to customize image optimization in Markdown, and many more improvements and bug fixes.
+We are thrilled to announce **Sirchmunk v0.0.2** — a major step forward with Model Context Protocol (MCP) integration, a comprehensive CLI, and persistent knowledge management.
 
-Highlights include:
+<!--more-->
 
-- New config options
-- Improved accessibility
-- Customizable image optimization in Markdown
+## Highlights
 
-Thank you to everyone who contributed to this release!
+### MCP Integration
 
-## New Features
+Full [Model Context Protocol](https://modelcontextprotocol.io) support enables seamless integration with AI assistants like **Claude Desktop** and **Cursor IDE**. Sirchmunk's search capabilities are exposed as MCP tools that any compliant client can discover and invoke.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+```json
+{
+  "mcpServers": {
+    "sirchmunk": {
+      "command": "sirchmunk",
+      "args": ["mcp", "serve"],
+      "env": {
+        "SIRCHMUNK_SEARCH_PATHS": "/path/to/your_docs"
+      }
+    }
+  }
+}
+```
 
-## Bug Fixes
+The MCP server supports both **stdio** (for local desktop AI tools) and **HTTP** (for remote scenarios) transport modes.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+### CLI Commands
+
+A new `sirchmunk` CLI provides a single entry point for all operations:
+
+| Command | Description |
+|---------|-------------|
+| `sirchmunk init` | Initialize working directory, .env, and MCP config |
+| `sirchmunk serve` | Start the backend API server |
+| `sirchmunk search` | Perform search queries directly from the terminal |
+| `sirchmunk web init` | Build WebUI frontend |
+| `sirchmunk web serve` | Start API + WebUI (single port) |
+| `sirchmunk mcp serve` | Start the MCP server |
+
+### Knowledge Persistence
+
+DuckDB-powered storage with Apache Parquet export provides efficient knowledge management:
+
+- **In-memory first**: Microsecond-level read/write during runtime
+- **Atomic persistence**: Crash-safe writes using the temp-file-then-rename pattern
+- **Parquet export**: Columnar format for excellent compression and analytical query performance
+
+### Semantic Cluster Reuse
+
+Knowledge clusters now store embedding vectors (384 dimensions), enabling fast cosine-similarity matching for repeated or paraphrased queries. This delivers **sub-second response times** for queries that match existing knowledge.
 
 ## How to Upgrade
 
-Simply run the following command in your terminal:
-
 ```bash
-hugo mod get -u github.com/HugoBlox/kit/modules/blox@main
+pip install --upgrade sirchmunk
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae fringilla sem. Integer mattis dictum augue non auctor. Proin quis porttitor enim. Praesent vulputate arcu egestas scelerisque condimentum. Vivamus elit risus, suscipit et enim et, viverra molestie elit. Nulla ullamcorper nisl vel nisi pellentesque, id feugiat risus interdum. Duis consequat ipsum elit. Aenean hendrerit diam ipsum, a convallis magna congue et. Sed ex erat, pretium et ante id, malesuada luctus nibh. Nunc nec consectetur elit.
+Or install with all extras:
+
+```bash
+pip install "sirchmunk[all]"
+```
+
+## What's Next?
+
+Our roadmap includes:
+- Web search integration
+- Multi-modal support (images, videos)
+- Distributed search across nodes
+- Knowledge visualization and deep analytics
+
+---
+
+*[GitHub Repository](https://github.com/modelscope/sirchmunk) · [ModelScope](https://github.com/modelscope)*

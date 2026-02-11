@@ -5,4 +5,4 @@ deploy:
   host: 'github-pages'
 template:
   id: "documentation"
-  name: "Documentation"
+  name: "Sirchmunk Documentation"

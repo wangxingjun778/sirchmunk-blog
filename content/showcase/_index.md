@@ -1,22 +1,20 @@
 ---
 title: Showcase
-description: "Docs websites powered by Hugo Blox."
+description: "See Sirchmunk in action — Web UI, MCP integration, and more."
 type: landing
-
-
 
 sections:
   - block: hero
     content:
-      title: Get Inspirated
-      text: 'Get inspired by exploring sites #MadeWithHugoBlox'
+      title: Sirchmunk in Action
+      text: 'Explore how Sirchmunk delivers intelligent search across different integration surfaces.'
       primary_action:
-        icon: brands/x
-        text: Submit Your Site
-        url: "https://x.com/intent/tweet?text=I%27m%20creating%20a%20beautiful%20website%20using%20the%20free%20%E2%9D%A4%EF%B8%8F%2C%20open%20source%20Hugo%20Blox%20Website%20Builder%20for%20%40GoHugoIO%20by%20%40GeorgeCushen%20%40LoreLabs_%20%E2%9C%A8%20Have%20some%20feedback%3F%20Please%20comment%20%F0%9F%A4%97&hashtags=MadeWithHugoBlox&url=https://HugoBlox.com/"
+        icon: brands/github
+        text: View on GitHub
+        url: "https://github.com/modelscope/sirchmunk"
       secondary_action:
-        text: Explore More on HugoBlox.com
-        url: https://hugoblox.com/creators/
+        text: Read the Technical Report
+        url: /blog/technical-deep-dive/
     design:
       no_padding: true
       spacing:

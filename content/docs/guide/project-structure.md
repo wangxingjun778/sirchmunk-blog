@@ -3,57 +3,80 @@ title: Project Structure
 weight: 1
 ---
 
-## Folder Structure
+An overview of Sirchmunk's source code organization and architectural layers.
 
-There are **4 main folders for Hugo-based sites**:
+## Repository Layout
 
-- `content/` for your Markdown-formatted content files (homepage, etc.)
-  - `_index.md` the homepage (**Hugo requires that the homepage and archive pages have an underscore prefix**)
-- `assets/`
-  - `media/` for your media files (images, videos)
-    - `icons/custom/` upload any custom SVG icons you want to use
-- `config/_default/` for your site configuration files
-  - `hugo.yaml` to configure Hugo (site title, URL, Hugo options, setup per-folder page features)
-  - `module.yaml` to install or uninstall Hugo themes and plugins
-  - `params.yaml` to configure Hugo Blox options (SEO, analytics, site features)
-  - `menus.yaml` to configure your menu links (if the menu is enabled in `params.yaml`)
-  - `languages.yaml` to configure your site's language or to set language-specific options in a multilingual site
-- `static/uploads/` for any files you want visitors to download, such as a PDF
-- `go.mod` sets the version of Hugo themes/plugins which your site uses
-
-
-## Hugo File Naming Convention
-
-Hugo gives us two options to name standard page files: as `TITLE/index.md` or `TITLE.md` where `TITLE` is your page name.
-
-The page name should be lowercase and using hyphens (`-`) instead of spaces.
-
-Both approaches result in the same output, so you can choose your preferred approach to naming and organizing files. A benefit to the folder-based approach is that all your page's files (such as images) are self-contained within the page's folder, so it's more portable if you wish to share the original Markdown page with someone.
-
-The homepage is a special case as **Hugo requires the homepage and listing pages to be named** `_index.md`.
-
-## Docs Navigation
-
-The docs navigation is automatically generated based on the content in the `docs/` folder and is sorted alphabetically.
-
-The order of pages can be changed by adding the `weight` parameter in the front matter of your Markdown files.
-
-In the example below, the `example.md` page will appear before the `test.md` page as it has a lower `weight`:
-
-Page `example.md`:
-
-```yaml
----
-title: My Example
-weight: 1
----
+```text
+sirchmunk/
+├── src/
+│   ├── sirchmunk/              # Core Python package
+│   │   ├── agentic/            # ReAct agent, tools, prompts
+│   │   ├── api/                # FastAPI REST endpoints
+│   │   │   └── components/     # History, monitor, settings storage
+│   │   ├── cli/                # CLI entry point and web launcher
+│   │   ├── insight/            # Text insight extraction
+│   │   ├── learnings/          # Evidence processing, knowledge base
+│   │   ├── llm/                # LLM interface (OpenAI-compatible)
+│   │   ├── retrieve/           # Indexless retrieval engine
+│   │   ├── scan/               # Directory and file scanners
+│   │   ├── schema/             # Data models (knowledge, context, etc.)
+│   │   ├── storage/            # DuckDB + Parquet persistence
+│   │   ├── utils/              # Utilities (embedding, tokenizer, etc.)
+│   │   ├── search.py           # Main search orchestrator
+│   │   └── base.py             # Base classes and abstractions
+│   └── sirchmunk_mcp/          # MCP server package
+│       ├── server.py           # MCP server implementation
+│       ├── service.py          # Search service layer
+│       └── tools.py            # MCP tool definitions
+├── web/                        # Next.js 14 frontend
+│   ├── app/                    # Pages (home, history, knowledge, monitor, settings)
+│   ├── components/             # React components
+│   ├── hooks/                  # Custom React hooks
+│   └── lib/                    # Utilities (API, i18n, theme)
+├── config/                     # Configuration templates
+├── scripts/                    # Helper scripts
+└── requirements/               # Dependency files by feature
 ```
 
-Page `test.md`:
+## Architectural Layers
 
-```yaml
----
-title: My Test
-weight: 2
----
-```
+Sirchmunk follows a strict **Separation of Concerns** pattern with four distinct layers:
+
+### Integration Layer
+External surfaces that expose Sirchmunk's intelligence:
+- **MCP Server** (`sirchmunk_mcp/`) — AI-to-AI communication
+- **REST API** (`api/`) — Programmatic HTTP access
+- **WebSocket** — Real-time streaming chat
+- **CLI** (`cli/`) — Command-line interface
+- **Web UI** (`web/`) — Browser-based interface
+
+### Orchestration Layer
+The search pipeline coordinator:
+- **AgenticSearch** (`search.py`) — Multi-phase search orchestrator
+- **SearchContext** (`schema/search_context.py`) — Budget, state, and audit management
+
+### Intelligence Layer
+Evidence extraction and knowledge synthesis:
+- **EvidenceProcessor** (`learnings/evidence_processor.py`) — Monte Carlo sampling
+- **KnowledgeBase** (`learnings/knowledge_base.py`) — Knowledge cluster management
+- **ReActAgent** (`agentic/react_agent.py`) — Autonomous exploration
+- **OpenAIChat** (`llm/openai_chat.py`) — Unified LLM interface
+
+### Storage Layer
+Persistence and caching:
+- **DuckDB** (`storage/duckdb.py`) — In-memory analytical database
+- **KnowledgeStorage** (`storage/knowledge_storage.py`) — Parquet-based cluster persistence
+
+## Core Components
+
+| Component | Module | Description |
+|-----------|--------|-------------|
+| **AgenticSearch** | `search.py` | Search orchestrator with LLM-enhanced retrieval |
+| **KnowledgeBase** | `learnings/knowledge_base.py` | Transforms results into structured knowledge clusters |
+| **EvidenceProcessor** | `learnings/evidence_processor.py` | Monte Carlo importance sampling for evidence extraction |
+| **GrepRetriever** | `retrieve/text_retriever.py` | High-performance indexless file search |
+| **DirScanner** | `scan/dir_scanner.py` | Directory structure analysis |
+| **ReActAgent** | `agentic/react_agent.py` | Budget-bounded autonomous exploration |
+| **OpenAIChat** | `llm/openai_chat.py` | Unified LLM interface with streaming and usage tracking |
+| **MonitorTracker** | `api/components/monitor_tracker.py` | Real-time system metrics |
