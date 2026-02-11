@@ -44,9 +44,21 @@ cascade:
 ############################
 
 defaultContentLanguage: en
-hasCJKLanguage: false
+hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
+
+languages:
+  en:
+    languageName: English
+    weight: 1
+  zh:
+    languageName: 中文
+    weight: 2
+    params:
+      hugoblox:
+        locale:
+          date_format: "2006年1月2日"
 
 ############################
 ## ADVANCED
