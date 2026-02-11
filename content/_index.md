@@ -14,16 +14,16 @@ sections:
       text: "Sirchmunk is an open-source, embedding-free, agentic search engine that transforms raw data into self-evolving intelligence in real time."
       primary_action:
         text: Get Started
-        url: /docs/getting-started/
+        url: docs/getting-started/
         icon: rocket-launch
       secondary_action:
         text: Read the Technical Report
-        url: /blog/technical-deep-dive/
+        url: blog/technical-deep-dive/
       announcement:
-        text: "Sirchmunk v0.0.2 Released — MCP Support, CLI & Knowledge Persistence!"
+        text: "Sirchmunk v0.0.3rc0 Released — Agentic Search Pipeline, Unified CLI & ReAct Agent!"
         link:
-          text: "Read more"
-          url: "/blog/v2.0.0/"
+          text: "View all releases"
+          url: "https://github.com/modelscope/sirchmunk/releases"
     design:
       spacing:
         padding: [0, 0, 0, 0]
@@ -84,7 +84,7 @@ sections:
       text: "Drop your files and search instantly — no vector database, no pre-indexing, no complex setup. Get self-evolving intelligence from your raw data in real time."
       button:
         text: Quick Start Guide
-        url: /docs/getting-started/
+        url: docs/getting-started/
     design:
       card:
         css_class: "bg-primary-700"

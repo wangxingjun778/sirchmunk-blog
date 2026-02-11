@@ -14,7 +14,7 @@ sections:
         url: "https://github.com/modelscope/sirchmunk"
       secondary_action:
         text: Read the Technical Report
-        url: /blog/technical-deep-dive/
+        url: ../blog/technical-deep-dive/
     design:
       no_padding: true
       spacing:
