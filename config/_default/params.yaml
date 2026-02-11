@@ -13,18 +13,18 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Your Name"
+    name: "Sirchmunk"
     # Legal entity for copyright notices (defaults to name if not set)
-    organization: ""
+    organization: "ModelScope"
     # Schema.org type for structured data
-    type: person                        # person | organization | local_business
+    type: organization                  # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: ""
+    tagline: "Raw data to self-evolving intelligence, real-time."
     # Site meta description for search engines and social sharing
-    description: "The highly-customizable Hugo Academic theme powered by HugoBlox Kit. Easily create your personal academic website."
+    description: "Sirchmunk is an open-source, embedding-free, agentic search engine that transforms raw data into self-evolving intelligence in real time. Built by ModelScope."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
-      twitter: "LoreLabs_"              # Twitter/X handle for Twitter Cards (without @)
+      twitter: ""                       # Twitter/X handle for Twitter Cards (without @)
 
   # ────────────────────────────────────────────────────────────────────────────
   # THEME
@@ -116,12 +116,12 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: "© {year} {name}. This work is licensed under {license}"
+    notice: "© {year} ModelScope. Licensed under Apache License 2.0."
     license:
-      type: cc                          # cc | custom
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+      type: custom                      # cc | custom
+      allow_derivatives: true
+      share_alike: false
+      allow_commercial: true
 
   # ────────────────────────────────────────────────────────────────────────────
   # SEO
@@ -157,7 +157,7 @@ hugoblox:
   content:
     # Math rendering
     math:
-      enable: false
+      enable: true
     # Table of contents
     toc:
       enable: true
@@ -231,8 +231,8 @@ hugoblox:
   # Source code repository for "Edit this page" links
   # ────────────────────────────────────────────────────────────────────────────
   repository:
-    enable: false
-    url: ""                             # e.g., https://github.com/username/repo
+    enable: true
+    url: "https://github.com/modelscope/sirchmunk"
     branch: main
     content_dir: content
 

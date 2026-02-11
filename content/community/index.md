@@ -7,30 +7,40 @@ pager: false
 
 ## Support
 
-Get support fast. Hugo Blox has the largest Hugo community on Discord, consisting of thousands of creators, developers, and startups.
+Get help and connect with the Sirchmunk community. We welcome contributions, questions, and feedback.
 
-## Docs
+## Documentation
 
-- View the [Hugo Blox Documentation](https://docs.hugoblox.com/)
+- View the [Sirchmunk Documentation](/docs/)
+- Read the [Technical Deep Dive](/blog/technical-deep-dive/)
 
-## Live Chat {#chat}
+## Source Code {#source}
 
-- Join the [Hugo Blox Online Chat](https://discord.gg/z8wNYzb)
-  - _#using-hugo-blox_ for user help
-  - _#contributors_ for contributing help
+- [Sirchmunk on GitHub](https://github.com/modelscope/sirchmunk) — Star the repo and follow development
+- [MCP Server Documentation](https://github.com/modelscope/sirchmunk/tree/main/src/sirchmunk_mcp)
 
-## Feature requests {#feature-requests}
+## Bug Reports & Feature Requests {#issues}
 
-For new feature requests, create a post on our [GitHub Issues](https://github.com/HugoBlox/kit/issues). You can also upvote existing feature requests with a 👍
+- [Open an Issue](https://github.com/modelscope/sirchmunk/issues) — Report bugs or request new features
+- [Pull Requests](https://github.com/modelscope/sirchmunk/pulls) — Contribute code, fixes, or documentation
+
+## Discussions {#discussions}
+
+- Join the [GitHub Discussions](https://github.com/modelscope/sirchmunk/discussions) — Ask questions, share ideas, and connect with other users
 
 ## News {#news}
 
-Follow us so you are the first to know when new features and templates are launched:
+Stay up-to-date with the latest Sirchmunk releases and features:
 
-- [Subscribe to the _#announcement_ channel on Discord](https://discord.gg/z8wNYzb)
-- [Follow us on Twitter](https://x.com/LoreLabs_)
-- [Subscribe to the Hugo Blox blog](https://hugoblox.com/blog/)
+- [Subscribe to the Sirchmunk Blog](/blog/)
+- [Watch the GitHub Repository](https://github.com/modelscope/sirchmunk) for release notifications
+
+## ModelScope Ecosystem
+
+Sirchmunk is part of the [ModelScope](https://github.com/modelscope) open-source ecosystem, building AI infrastructure for the community.
 
 ## Further Resources
 
-- [Hugo Forums](https://discourse.gohugo.io/) for help installing Hugo and resolving Hugo error messages
+- [Model Context Protocol (MCP)](https://modelcontextprotocol.io) — The protocol powering Sirchmunk's AI-to-AI integration
+- [FastAPI Documentation](https://fastapi.tiangolo.com/) — The framework behind Sirchmunk's API layer
+- [DuckDB Documentation](https://duckdb.org/docs/) — The in-memory analytics engine used for knowledge storage

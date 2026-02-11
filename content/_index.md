@@ -1,6 +1,6 @@
 ---
-title: 'Home'
-date: 2023-10-24
+title: 'Sirchmunk'
+date: 2026-02-10
 type: landing
 
 design:
@@ -10,88 +10,83 @@ design:
 sections:
   - block: hero
     content:
-      title: Write Docs Fast, Focus on Your Content
-      text: The easy, no-code technical documentation solution your users will love 🎉
+      title: "Raw Data to Self-Evolving Intelligence"
+      text: "Sirchmunk is an open-source, embedding-free, agentic search engine that transforms raw data into self-evolving intelligence in real time."
       primary_action:
         text: Get Started
-        url: https://hugoblox.com/templates/details/docs/
+        url: /docs/getting-started/
         icon: rocket-launch
       secondary_action:
-        text: Read the docs
-        url: /docs/
+        text: Read the Technical Report
+        url: /blog/technical-deep-dive/
       announcement:
-        text: "Announcing the release of version 2."
+        text: "Sirchmunk v0.0.2 Released — MCP Support, CLI & Knowledge Persistence!"
         link:
           text: "Read more"
-          url: "/blog/"
+          url: "/blog/v0.0.2-released/"
     design:
       spacing:
         padding: [0, 0, 0, 0]
         margin: [0, 0, 0, 0]
-      # For full-screen, add `min-h-screen` below
       css_class: ""
       background:
         color: ""
         image:
-          # Add your image background to `assets/media/`.
           filename: ""
           filters:
             brightness: 0.5
   - block: stats
     content:
       items:
-        - statistic: "1M+"
+        - statistic: "100+"
           description: |
-            Websites built  
-            with Hugo Blox
-        - statistic: "10k+"
+            File formats  
+            searched instantly
+        - statistic: "Zero"
           description: |
-            GitHub stars  
-            since 2016
-        - statistic: "3k+"
+            Pre-indexing  
+            required
+        - statistic: "5"
           description: |
-            Discord community  
-            for support
+            Integration surfaces  
+            MCP · REST · WS · CLI · Web
     design:
-      # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-800"
-      # Reduce spacing
       spacing:
         padding: ["1rem", 0, "1rem", 0]
   - block: features
     id: features
     content:
-      title: Features
-      text: Collaborate, publish, and maintain technical knowledge with an all-in-one documentation site. Used by 100,000+ startups, enterprises, and researchers.
+      title: Key Features
+      text: "An agentic search engine that goes beyond traditional RAG — embedding-free, self-evolving, and token-efficient."
       items:
-        - name: Optimized SEO
+        - name: Embedding-Free Retrieval
           icon: magnifying-glass
-          description: Automatic sitemaps, RSS feeds, and rich metadata take the pain out of SEO and syndication.
-        - name: Fast
+          description: "Work directly with raw data. No vector database, no pre-indexing, no ETL pipeline. Just drop your files and search immediately."
+        - name: Self-Evolving Knowledge
+          icon: arrow-path
+          description: "Knowledge clusters compound with every search. The system learns and improves over time, delivering faster and richer results."
+        - name: Monte Carlo Evidence Sampling
+          icon: chart-bar
+          description: "Strategically sample documents using exploration-exploitation methods. Extract precise evidence without reading entire files."
+        - name: ReAct Agent Fallback
+          icon: cpu-chip
+          description: "When standard retrieval falls short, an autonomous ReAct agent iteratively explores alternative strategies until answers are found."
+        - name: Multi-Surface Integration
+          icon: globe-alt
+          description: "MCP protocol for AI-to-AI communication, REST API, WebSocket real-time chat, CLI, and a modern Web UI — all built in."
+        - name: Token-Efficient Design
           icon: bolt
-          description: Super fast page load with Tailwind CSS and super fast site building with Hugo.
-        - name: Easy
-          icon: sparkles
-          description: One-click deployment to GitHub Pages. Have your new website live within 5 minutes!
-        - name: No-Code
-          icon: code-bracket
-          description: Edit and design your site just using rich text (Markdown) and configurable YAML parameters.
-        - name: Highly Rated
-          icon: star
-          description: Rated 5-stars by the community.
-        - name: Swappable Blocks
-          icon: rectangle-group
-          description: Build your pages with blocks - no coding required!
+          description: "LLM inference triggered only when necessary. Monte Carlo sampling and knowledge reuse minimize costs while maximizing intelligence."
   - block: cta-card
     content:
-      title: "Start Writing with the #1 Effortless Documentation Platform"
-      text: Hugo Blox Docs Theme brings all your technical knowledge together in a single, centralized knowledge base. Easily search and edit it with the tools you use every day!
+      title: "Start Searching with Sirchmunk"
+      text: "Drop your files and search instantly — no vector database, no pre-indexing, no complex setup. Get self-evolving intelligence from your raw data in real time."
       button:
-        text: Get Started
-        url: https://hugoblox.com/templates/details/docs/
+        text: Quick Start Guide
+        url: /docs/getting-started/
     design:
       card:
-        # Card background color (CSS class)
         css_class: "bg-primary-700"
         css_style: ""
 ---
