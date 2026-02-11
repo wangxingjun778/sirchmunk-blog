@@ -3,7 +3,7 @@ linkTitle: 文档
 title: Sirchmunk 文档
 ---
 
-欢迎来到 Sirchmunk 文档！Sirchmunk 是一款开源、无需向量嵌入的智能搜索引擎，能够将原始数据实时转化为自进化智能。
+欢迎来到 Sirchmunk 文档！Sirchmunk 是一款开源、无需向量嵌入、基于智能体的搜索引擎，能够实时检索多种类型原始数据并转化为动态知识，具备自我进化的能力。
 
 <!--more-->
 
