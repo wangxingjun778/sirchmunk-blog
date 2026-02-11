@@ -3,7 +3,7 @@ title: 配置
 weight: 2
 ---
 
-Sirchmunk 通过存储在 `.env` 文件中的环境变量进行配置。运行 `sirchmunk init` 后，配置文件创建在 `~/.sirchmunk/.env`。
+Sirchmunk 通过存储在 `.env` 文件中的环境变量进行配置。运行 `sirchmunk init` 后，将在 `~/.sirchmunk/.env` 生成配置文件。
 
 <!--more-->
 

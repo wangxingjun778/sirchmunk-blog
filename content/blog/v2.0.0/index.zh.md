@@ -48,8 +48,8 @@ MCP 服务器支持 **stdio**（用于本地桌面 AI 工具）和 **HTTP**（�
 | `sirchmunk init` | 初始化工作目录、.env 和 MCP 配置 |
 | `sirchmunk serve` | 启动后端 API 服务器 |
 | `sirchmunk search` | 直接从终端执行搜索 |
-| `sirchmunk web init` | 构建 WebUI 前端 |
-| `sirchmunk web serve` | 启动 API + WebUI（单端口） |
+| `sirchmunk web init` | 构建 Web UI 前端 |
+| `sirchmunk web serve` | 启动 API + Web UI（单端口） |
 | `sirchmunk mcp serve` | 启动 MCP 服务器 |
 
 ### 知识持久化

@@ -10,8 +10,8 @@ design:
 sections:
   - block: hero
     content:
-      title: '<span class="hero-title-with-logo"><img src="images/icon.png" alt="Sirchmunk" class="hero-logo" /><span>从原始数据到自进化智能</span></span>'
-      text: "Sirchmunk 是一款开源、无需向量嵌入的智能搜索引擎，能够将原始数据实时转化为自进化智能。"
+      title: '<span class="hero-title-with-logo"><img src="../images/icon.png" alt="Sirchmunk" class="hero-logo" /><span>从原始数据到自进化智能</span></span>'
+      text: "Sirchmunk 是一款开源、无需向量嵌入的智能搜索引擎，能够实时检索多种类型原始数据并转化为动态知识，具备自我进化的能力。"
       primary_action:
         text: 快速开始
         url: docs/getting-started/
@@ -42,7 +42,7 @@ sections:
           description: |
             文件格式  
             即时搜索
-        - statistic: "零"
+        - statistic: "0"
           description: |
             无需预索引  
             直接搜索
@@ -69,9 +69,9 @@ sections:
         - name: 蒙特卡洛证据采样
           icon: chart-bar
           description: "使用探索-利用策略对文档进行智能采样，无需阅读整个文件即可提取精确证据。"
-        - name: ReAct 智能体回退
+        - name: ReAct 智能体自适应检索
           icon: cpu-chip
-          description: "当常规检索不足时，自主 ReAct 智能体迭代探索替代策略，直到找到答案。"
+          description: "当常规检索不足时，ReAct 智能体自主迭代推理并探索替代检索策略，直到找到答案。"
         - name: 多接口集成
           icon: globe-alt
           description: "MCP 协议实现 AI 到 AI 通信，REST API、WebSocket 实时聊天、CLI 和现代 Web UI — 全部内置。"
@@ -81,7 +81,7 @@ sections:
   - block: cta-card
     content:
       title: "开始使用 Sirchmunk 搜索"
-      text: "放入文件即刻搜索 — 无需向量数据库、无需预索引、无需复杂配置。从原始数据中实时获取自进化智能。"
+      text: "放入文件即刻搜索 — 无需向量数据库、无需预索引、无需复杂配置。从原始数据中实时检索并自主构建知识体系。"
       button:
         text: 快速入门指南
         url: docs/getting-started/

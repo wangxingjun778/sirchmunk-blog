@@ -77,6 +77,6 @@ Sirchmunk 遵循严格的**关注点分离**模式，分为四个独立层次：
 | **EvidenceProcessor** | `learnings/evidence_processor.py` | 蒙特卡洛重要性采样证据提取 |
 | **GrepRetriever** | `retrieve/text_retriever.py` | 高性能无索引文件搜索 |
 | **DirScanner** | `scan/dir_scanner.py` | 目录结构分析 |
-| **ReActAgent** | `agentic/react_agent.py` | 预算约束的自主探索 |
+| **ReActAgent** | `agentic/react_agent.py` | 预算约束下的自主探索 |
 | **OpenAIChat** | `llm/openai_chat.py` | 统一 LLM 接口（支持流式和使用量跟踪） |
 | **MonitorTracker** | `api/components/monitor_tracker.py` | 实时系统指标 |

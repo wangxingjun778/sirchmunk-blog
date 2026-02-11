@@ -3,7 +3,7 @@ title: MCP 集成
 weight: 5
 ---
 
-Sirchmunk 提供了一个[模型上下文协议 (MCP)](https://modelcontextprotocol.io) 服务器，将其智能搜索能力作为 MCP 工具暴露。这使得与 **Claude Desktop** 和 **Cursor IDE** 等 AI 助手的集成变得无缝。
+Sirchmunk 提供了一个[模型上下文协议 (MCP)](https://modelcontextprotocol.io) 服务器，将其智能搜索能力作为 MCP 工具暴露。可与 **Claude Desktop** 和 **Cursor IDE** 等 AI 助手无缝集成。
 
 ## 快速开始
 
@@ -40,7 +40,7 @@ npx @modelcontextprotocol/inspector sirchmunk mcp serve
 
 | 参数 | 描述 |
 |------|------|
-| `command` | sirchmunk 二进制文件路径。虚拟环境中请使用完整路径。 |
+| `command` | sirchmunk 可执行文件路径。虚拟环境中请使用完整路径。 |
 | `args` | `["mcp", "serve"]` 以 stdio 模式启动 MCP 服务器。 |
 | `env.SIRCHMUNK_SEARCH_PATHS` | 默认搜索目录（逗号分隔）。 |
 
@@ -107,4 +107,4 @@ sirchmunk mcp serve --transport http --port 3000
 4. Sirchmunk 将作为 Cursor AI 聊天中的可用工具
 
 > [!NOTE]
-> MCP Inspector 是在连接 AI 助手之前测试集成的好工具。在 MCP Inspector 中：**Connect** → **Tools** → **List Tools** → `sirchmunk_search` → 输入参数 → **Run Tool**。
+> MCP Inspector 适合在连接 AI 助手之前测试集成。在 MCP Inspector 中：**Connect** → **Tools** → **List Tools** → `sirchmunk_search` → 输入参数 → **Run Tool**。
