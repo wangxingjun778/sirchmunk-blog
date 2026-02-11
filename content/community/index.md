@@ -32,7 +32,7 @@ Get help and connect with the Sirchmunk community. We welcome contributions, que
 
 Stay up-to-date with the latest Sirchmunk releases and features:
 
-- [Subscribe to the Sirchmunk Blog](/blo
+- [Subscribe to the Sirchmunk Blog](/blog/)
 - [Watch the GitHub Repository](https://github.com/modelscope/sirchmunk) for release notifications
 
 ## ModelScope Ecosystem

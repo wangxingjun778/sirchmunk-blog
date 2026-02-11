@@ -52,6 +52,8 @@ Valuable clusters are saved with their embeddings for future reuse.
 
 An exploration–exploitation approach for extracting evidence from large documents:
 
+![Monte Carlo Evidence Sampling Algorithm](Sirchmunk_MonteCarloSamplingAlgo.png "Monte Carlo Evidence Sampling: Three-act exploration–exploitation strategy")
+
 1. **Act 1 — Casting the Net**: Fuzzy anchoring + stratified random sampling
 2. **Act 2 — Zooming In**: Gaussian importance sampling around high-scoring seeds
 3. **Act 3 — Synthesis**: Top-K snippets → LLM summary
