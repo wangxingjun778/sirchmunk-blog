@@ -23,7 +23,7 @@ sections:
         text: "Sirchmunk v0.0.2 Released — MCP Support, CLI & Knowledge Persistence!"
         link:
           text: "Read more"
-          url: "/blog/v0.0.2-released/"
+          url: "/blog/v2.0.0/"
     design:
       spacing:
         padding: [0, 0, 0, 0]

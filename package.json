@@ -1,9 +1,9 @@
 {
-  "name": "hugo-blox-documentation-starter",
+  "name": "sirchmunk-blog",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.14.0",
-  "description": "Documentation starter template for Hugo Blox with Tailwind CSS v4",
+  "description": "Sirchmunk technical blog and documentation site powered by Hugo Blox",
   "scripts": {
     "dev": "hugo server --disableFastRender",
     "build": "hugo --minify && pnpm run pagefind",

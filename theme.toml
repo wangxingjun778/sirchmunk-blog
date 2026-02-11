@@ -1,15 +1,14 @@
-name = "Easy Docs"
-license = "MIT"
-licenselink = "https://github.com/HugoBlox/theme-documentation/blob/main/LICENSE.md"
-description = "Easy, all-in-one beautiful documentation website including a customizable homepage and blog. Super fast, empowering you to focus on your content."
+name = "Sirchmunk Blog"
+license = "Apache-2.0"
+licenselink = "https://github.com/modelscope/sirchmunk/blob/main/LICENSE"
+description = "Technical blog and documentation for Sirchmunk — an open-source, embedding-free, agentic search engine."
 
-homepage = "https://github.com/HugoBlox/theme-documentation"
-demosite = "https://hugo-docs-theme.netlify.app"
+homepage = "https://github.com/wangxingjun778/sirchmunk-blog"
+demosite = "https://wangxingjun778.github.io/sirchmunk-blog/"
 
-tags = ["landing", "docs", "blog", "responsive", "minimal", "light", "dark", "multilingual", "dark mode", "tailwind", "company", "gallery"]
-features = ["secure", "fast", "search", "dark mode", "widgets"]
+tags = ["ai", "search", "documentation", "blog", "technical", "rag", "mcp", "tailwind"]
+features = ["secure", "fast", "search", "dark mode"]
 
-# If the theme has a single author
 [author]
-  name = "George Cushen"
-  homepage = "https://georgecushen.com/"
+  name = "ModelScope Team"
+  homepage = "https://github.com/modelscope"
