@@ -44,6 +44,19 @@ Sirchmunk's design philosophy rests on three pillars:
 | **Self-Evolving** | Data is a stream, not a snapshot | Knowledge clusters evolve with every search; LLM-powered autonomy ensures that the system's understanding deepens over time. |
 | **Token-Efficient** | Maximize intelligence, minimize cost | LLM inference is triggered only when necessary; Monte Carlo sampling extracts precise evidence from documents without reading them in full. |
 
+### Comparison with Traditional RAG
+
+| Dimension | Traditional RAG | Sirchmunk |
+|-----------|----------------|-----------|
+| **Setup Cost** | High — VectorDB, GraphDB, document parsers, ETL pipelines | Zero — Drop files and search immediately |
+| **Data Freshness** | Stale — Requires batch re-indexing | Instant — Searches live files directly |
+| **Information Fidelity** | Lossy — Vector approximation discards nuance | Full — Raw content, zero loss |
+| **Scalability** | Linear cost growth with data size | Low resource consumption — streaming search, in-memory analytics |
+| **Accuracy** | Approximate matches — may miss or hallucinate | Deterministic — Evidence-backed with confidence scores |
+| **Knowledge Evolution** | Static — Index is a snapshot in time | Self-evolving — Clusters grow with every search |
+| **Token Efficiency** | Sends full chunks to LLM | Monte Carlo sampling selects only the most relevant regions |
+| **Failure Mode** | Returns whatever the vector index matches — no recourse | Falls back to ReAct agent for iterative deep exploration |
+
 ## 3. System Architecture
 
 ![Sirchmunk Architecture](Sirchmunk_Architecture.png "Fig. 1 — Sirchmunk high-level architecture. The system is organized into cleanly separated layers: an Integration layer for external surfaces, an Orchestration layer for the search pipeline, an Intelligence layer for evidence extraction and knowledge synthesis, and a Storage layer for persistence.")
@@ -170,27 +183,7 @@ Sirchmunk solves this with an **exploration–exploitation** approach inspired b
 
 ### The Algorithm in Three Acts
 
-```text
-Document: [=============================================================]
-
-Act 1: Fuzzy Anchoring (Exploitation) + Stratified Exploration
-       Sliding-window fuzzy matching locates likely "hot spots"
-       Stratified random samples cover unexplored territory
-       vvv        v     v         vv         v
-       [###]      [#]   [#]       [##]       [#]
-            | LLM scores each sample (0-10)
-       [8.5]      [2]   [1]       [7.2]     [3]
-
-Act 2: Gaussian Importance Sampling around High-Scoring Seeds
-       sigma decays each round (sigma/2, sigma/4, ...)
-       vvvvv                     vvvv
-       [#####]                   [####]
-            | LLM scores
-       [9.1] [8.8]              [7.5]
-
-Act 3: Top-K Extraction
-       Best snippets -> LLM summary of the Region of Interest (ROI)
-```
+![Monte Carlo Evidence Sampling Algorithm](Sirchmunk_MonteCarloSamplingAlgo.png "Fig. 2 — Monte Carlo Evidence Sampling: Three-act exploration–exploitation strategy for extracting relevant evidence from large documents.")
 
 #### Act 1: Casting the Net
 
@@ -310,44 +303,7 @@ The web interface is built around the principle of **transparent intelligence**:
 
 The command-line interface serves as the primary entry point for all operations: initialization, server management, direct search, web UI serving, and MCP server startup. The design principle is **one tool, all modes** — a single binary covers every use case from quick local search to full production deployment.
 
-## 11. Design Principles
-
-### SOLID Adherence
-
-| Principle | How It Manifests |
-|-----------|-----------------|
-| **Single Responsibility** | Each component has exactly one reason to change. Retrieval, scanning, evidence extraction, knowledge synthesis, LLM communication, and storage are all isolated concerns with clean boundaries. |
-| **Open/Closed** | The system is extended through abstractions, not modifications. New retrieval strategies, scanning methods, or agent tools can be added without touching existing code. The tool registry is a concrete example: tools are registered dynamically. |
-| **Liskov Substitution** | All implementations honor their abstract contracts. Any retriever can be swapped for another; any scanner can replace the default; any LLM backend that speaks the OpenAI protocol works seamlessly. |
-| **Interface Segregation** | Abstract interfaces are minimal: each defines only the single method that clients actually need. No component is forced to implement capabilities it doesn't use. |
-| **Dependency Inversion** | High-level orchestration depends on abstractions, not concrete implementations. The search orchestrator doesn't know which retriever or scanner it's using — only that they fulfill the required contract. |
-
-### Architectural Patterns
-
-| Pattern | Where & Why |
-|---------|-------------|
-| **Pipeline / Chain** | The multi-phase search pipeline processes data through well-defined stages. Each phase has a clear input, transformation, and output. |
-| **Strategy** | Search modes (DEEP vs. FILENAME_ONLY), retrieval logic, and insight extraction methods are interchangeable strategies. |
-| **Registry** | The ReAct agent's tools are registered dynamically, allowing new capabilities to be added without modifying the agent's core reasoning loop. |
-| **Context Object** | A search context carries budget, state, and audit logs through the entire search lifecycle. |
-| **Cache-Aside** | Knowledge clusters, spec-path contexts, and file metadata are all cached with a "check-cache-first, compute-on-miss" pattern. |
-| **Lazy Initialization** | Heavyweight components are initialized on first use, not at startup, keeping cold-start times low. |
-| **Atomic Write** | All persistence operations use the temp-file-then-rename pattern, ensuring crash-safe durability. |
-
-## 12. Comparison with Traditional RAG
-
-| Dimension | Traditional RAG | Sirchmunk |
-|-----------|----------------|-----------|
-| **Setup Cost** | High — VectorDB, GraphDB, document parsers, ETL pipelines | Zero — Drop files and search immediately |
-| **Data Freshness** | Stale — Requires batch re-indexing | Instant — Searches live files directly |
-| **Information Fidelity** | Lossy — Vector approximation discards nuance | Full — Raw content, zero loss |
-| **Scalability** | Linear cost growth with data size | Low resource consumption — streaming search, in-memory analytics |
-| **Accuracy** | Approximate matches — may miss or hallucinate | Deterministic — Evidence-backed with confidence scores |
-| **Knowledge Evolution** | Static — Index is a snapshot in time | Self-evolving — Clusters grow with every search |
-| **Token Efficiency** | Sends full chunks to LLM | Monte Carlo sampling selects only the most relevant regions |
-| **Failure Mode** | Returns whatever the vector index matches — no recourse | Falls back to ReAct agent for iterative deep exploration |
-
-## 13. Conclusion & Roadmap
+## 11. Conclusion
 
 Sirchmunk represents a paradigm shift in how we think about retrieval-augmented generation. By eliminating the embedding bottleneck and embracing an agentic, evidence-driven approach, it achieves:
 
@@ -357,23 +313,6 @@ Sirchmunk represents a paradigm shift in how we think about retrieval-augmented 
 - **Self-improving intelligence** — Knowledge clusters compound over time, making repeated queries faster and richer.
 - **Graceful degradation** — When the standard pipeline finds nothing, the ReAct agent explores deeper rather than giving up.
 - **Universal integration** — MCP, REST, WebSocket, CLI, and Web UI meet users wherever they work.
-
-### Roadmap
-
-| Status | Feature |
-|--------|---------|
-| Done | Indexless retrieval from raw files with intelligent file discovery |
-| Done | Self-evolving knowledge clustering with lifecycle management |
-| Done | Monte Carlo evidence sampling for token-efficient extraction |
-| Done | ReAct agent with budget-bounded iterative exploration |
-| Done | MCP server for AI-to-AI integration |
-| Done | Web UI with real-time chat, knowledge analytics, and monitoring |
-| Planned | Web search integration |
-| Planned | Multi-modal support (images, videos) |
-| Planned | Distributed search across nodes |
-| Planned | Knowledge visualization and deep analytics |
-
----
 
 ### Technology Stack
 

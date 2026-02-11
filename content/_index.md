@@ -10,7 +10,7 @@ design:
 sections:
   - block: hero
     content:
-      title: "Raw Data to Self-Evolving Intelligence"
+      title: '<span class="hero-title-with-logo"><img src="images/icon.png" alt="Sirchmunk" class="hero-logo" />Raw Data to Self-Evolving Intelligence</span>'
       text: "Sirchmunk is an open-source, embedding-free, agentic search engine that transforms raw data into self-evolving intelligence in real time."
       primary_action:
         text: Get Started
